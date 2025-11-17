@@ -5,24 +5,24 @@ import { Badge } from "@/components/ui/badge";
 
 const Blocks = () => {
   const blocks = [
-    { id: 1, name: "Block A", complex: "Sunset Heights", floors: 12, units: 30, available: 5, status: "Active" },
-    { id: 2, name: "Block B", complex: "Sunset Heights", floors: 10, units: 28, available: 3, status: "Active" },
-    { id: 3, name: "Block A", complex: "Green Valley", floors: 8, units: 24, available: 2, status: "Active" },
-    { id: 4, name: "Block B", complex: "Green Valley", floors: 8, units: 26, available: 4, status: "Active" },
-    { id: 5, name: "Block A", complex: "Park View", floors: 15, units: 35, available: 8, status: "Active" },
-    { id: 6, name: "Block C", complex: "Park View", floors: 15, units: 35, available: 6, status: "Active" },
+    { id: 1, name: "Блок А", complex: "Закатные Высоты", floors: 12, units: 30, available: 5, status: "Активный" },
+    { id: 2, name: "Блок Б", complex: "Закатные Высоты", floors: 10, units: 28, available: 3, status: "Активный" },
+    { id: 3, name: "Блок А", complex: "Зелёная Долина", floors: 8, units: 24, available: 2, status: "Активный" },
+    { id: 4, name: "Блок Б", complex: "Зелёная Долина", floors: 8, units: 26, available: 4, status: "Активный" },
+    { id: 5, name: "Блок А", complex: "Вид на Парк", floors: 15, units: 35, available: 8, status: "Активный" },
+    { id: 6, name: "Блок В", complex: "Вид на Парк", floors: 15, units: 35, available: 6, status: "Активный" },
   ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Blocks</h1>
-          <p className="text-muted-foreground">Manage blocks within complexes</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Блоки</h1>
+          <p className="text-muted-foreground">Управление блоками в комплексах</p>
         </div>
         <Button className="gap-2">
           <Plus className="w-4 h-4" />
-          Add Block
+          Добавить блок
         </Button>
       </div>
 
@@ -48,16 +48,16 @@ const Blocks = () => {
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground flex items-center gap-2">
                     <Layers className="w-4 h-4" />
-                    Floors
+                    Этажей
                   </span>
                   <span className="font-medium">{block.floors}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">Total Units</span>
+                  <span className="text-muted-foreground">Всего квартир</span>
                   <span className="font-medium">{block.units}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm pt-2 border-t border-border">
-                  <span className="text-muted-foreground">Available</span>
+                  <span className="text-muted-foreground">Доступно</span>
                   <span className="font-semibold text-success">{block.available}</span>
                 </div>
               </div>

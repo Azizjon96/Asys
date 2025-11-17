@@ -8,33 +8,33 @@ const Notifications = () => {
     {
       id: 1,
       type: "success",
-      title: "Payment Received",
-      message: "Payment of $25,000 received from John Anderson for CON-001",
-      time: "2 hours ago",
+      title: "Платёж получен",
+      message: "Получен платёж 1 875 000 ₽ от Иванова И.И. по договору ДОГ-001",
+      time: "2 часа назад",
       read: false,
     },
     {
       id: 2,
       type: "warning",
-      title: "Payment Due Soon",
-      message: "Monthly payment of $5,000 due in 3 days for CON-001",
-      time: "5 hours ago",
+      title: "Скоро платёж",
+      message: "Ежемесячный платёж 375 000 ₽ должен быть произведён через 3 дня по ДОГ-001",
+      time: "5 часов назад",
       read: false,
     },
     {
       id: 3,
       type: "info",
-      title: "New Contract Signed",
-      message: "Contract CON-005 has been signed by Emma Davis",
-      time: "1 day ago",
+      title: "Подписан новый договор",
+      message: "Смирновой Е.Д. подписан договор ДОГ-005",
+      time: "1 день назад",
       read: true,
     },
     {
       id: 4,
       type: "info",
-      title: "Meeting Scheduled",
-      message: "Site visit scheduled for Sunset Heights Block A on Jan 18",
-      time: "2 days ago",
+      title: "Запланирована встреча",
+      message: "Осмотр объекта в Закатных Высотах, Блок А, на 18 января",
+      time: "2 дня назад",
       read: true,
     },
   ];
@@ -65,17 +65,17 @@ const Notifications = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Notifications</h1>
-          <p className="text-muted-foreground">Stay updated with your business activities</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Уведомления</h1>
+          <p className="text-muted-foreground">Будьте в курсе деятельности вашего бизнеса</p>
         </div>
-        <Button variant="outline">Mark All as Read</Button>
+        <Button variant="outline">Отметить всё прочитанным</Button>
       </div>
 
       <Card>
         <CardHeader className="border-b border-border">
           <CardTitle className="text-lg font-semibold flex items-center gap-2">
             <Bell className="w-5 h-5" />
-            Recent Notifications
+            Последние уведомления
           </CardTitle>
         </CardHeader>
         <CardContent className="p-0">
@@ -97,7 +97,7 @@ const Notifications = () => {
                         {notification.title}
                       </h3>
                       {!notification.read && (
-                        <Badge variant="default" className="shrink-0">New</Badge>
+                        <Badge variant="default" className="shrink-0">Новое</Badge>
                       )}
                     </div>
                     <p className="text-sm text-muted-foreground mb-2">
