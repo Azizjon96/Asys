@@ -3,13 +3,13 @@ import { Building2, Users, FileText, Home, Building, CreditCard, Bell } from "lu
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { to: "/", icon: Home, label: "Dashboard" },
-  { to: "/clients", icon: Users, label: "Clients" },
-  { to: "/contracts", icon: FileText, label: "Contracts" },
-  { to: "/complexes", icon: Building2, label: "Complexes" },
-  { to: "/blocks", icon: Building, label: "Blocks" },
-  { to: "/payments", icon: CreditCard, label: "Payments" },
-  { to: "/notifications", icon: Bell, label: "Notifications" },
+  { to: "/", icon: Home, label: "Панель управления" },
+  { to: "/clients", icon: Users, label: "Клиенты" },
+  { to: "/contracts", icon: FileText, label: "Договоры" },
+  { to: "/complexes", icon: Building2, label: "Жилые комплексы" },
+  { to: "/blocks", icon: Building, label: "Блоки" },
+  { to: "/payments", icon: CreditCard, label: "Платежи" },
+  { to: "/notifications", icon: Bell, label: "Уведомления" },
 ];
 
 export const Sidebar = () => {
@@ -22,7 +22,7 @@ export const Sidebar = () => {
           </div>
           <div>
             <h1 className="text-lg font-bold text-sidebar-foreground">BuildCRM</h1>
-            <p className="text-xs text-sidebar-foreground/60">Construction Management</p>
+            <p className="text-xs text-sidebar-foreground/60">Управление строительством</p>
           </div>
         </div>
       </div>
@@ -43,8 +43,8 @@ export const Sidebar = () => {
 
       <div className="p-4 border-t border-sidebar-border">
         <div className="bg-sidebar-accent rounded-lg p-4">
-          <p className="text-sm text-sidebar-accent-foreground font-medium mb-1">Need Help?</p>
-          <p className="text-xs text-sidebar-accent-foreground/60">Contact support team</p>
+          <p className="text-sm text-sidebar-accent-foreground font-medium mb-1">Нужна помощь?</p>
+          <p className="text-xs text-sidebar-accent-foreground/60">Обратитесь в поддержку</p>
         </div>
       </div>
     </aside>

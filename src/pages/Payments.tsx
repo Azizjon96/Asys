@@ -17,46 +17,46 @@ const Payments = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const payments = [
-    { id: "PAY-001", contract: "CON-001", client: "John Anderson", amount: "$25,000", date: "2024-01-15", status: "Completed", type: "Initial" },
-    { id: "PAY-002", contract: "CON-002", client: "Sarah Williams", amount: "$18,000", date: "2024-01-14", status: "Completed", type: "Initial" },
-    { id: "PAY-003", contract: "CON-001", client: "John Anderson", amount: "$5,000", date: "2024-02-01", status: "Pending", type: "Monthly" },
-    { id: "PAY-004", contract: "CON-003", client: "Michael Chen", amount: "$32,000", date: "2024-01-13", status: "Completed", type: "Initial" },
-    { id: "PAY-005", contract: "CON-004", client: "Emma Davis", amount: "$29,000", date: "2024-01-12", status: "Completed", type: "Initial" },
+    { id: "ПЛТ-001", contract: "ДОГ-001", client: "Иванов Иван Иванович", amount: "1 875 000 ₽", date: "15.01.2024", status: "Выполнен", type: "Первоначальный" },
+    { id: "ПЛТ-002", contract: "ДОГ-002", client: "Петрова Мария Сергеевна", amount: "1 350 000 ₽", date: "14.01.2024", status: "Выполнен", type: "Первоначальный" },
+    { id: "ПЛТ-003", contract: "ДОГ-001", client: "Иванов Иван Иванович", amount: "375 000 ₽", date: "01.02.2024", status: "В ожидании", type: "Ежемесячный" },
+    { id: "ПЛТ-004", contract: "ДОГ-003", client: "Сидоров Петр Алексеевич", amount: "2 400 000 ₽", date: "13.01.2024", status: "Выполнен", type: "Первоначальный" },
+    { id: "ПЛТ-005", contract: "ДОГ-004", client: "Смирнова Елена Дмитриевна", amount: "2 175 000 ₽", date: "12.01.2024", status: "Выполнен", type: "Первоначальный" },
   ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Payments</h1>
-          <p className="text-muted-foreground">Track and manage payment transactions</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Платежи</h1>
+          <p className="text-muted-foreground">Учёт и управление платёжными транзакциями</p>
         </div>
         <Button className="gap-2">
           <Plus className="w-4 h-4" />
-          Record Payment
+          Записать платёж
         </Button>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
         <Card>
           <CardContent className="pt-6">
-            <div className="text-sm text-muted-foreground mb-1">Total Collected</div>
-            <div className="text-2xl font-bold text-foreground">$109,000</div>
-            <div className="text-xs text-success mt-2">This month</div>
+            <div className="text-sm text-muted-foreground mb-1">Всего собрано</div>
+            <div className="text-2xl font-bold text-foreground">8 175 000 ₽</div>
+            <div className="text-xs text-success mt-2">В этом месяце</div>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="pt-6">
-            <div className="text-sm text-muted-foreground mb-1">Pending</div>
-            <div className="text-2xl font-bold text-warning">$5,000</div>
-            <div className="text-xs text-muted-foreground mt-2">Due soon</div>
+            <div className="text-sm text-muted-foreground mb-1">В ожидании</div>
+            <div className="text-2xl font-bold text-warning">375 000 ₽</div>
+            <div className="text-xs text-muted-foreground mt-2">Скоро к оплате</div>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="pt-6">
-            <div className="text-sm text-muted-foreground mb-1">Total Revenue</div>
-            <div className="text-2xl font-bold text-foreground">$2.4M</div>
-            <div className="text-xs text-muted-foreground mt-2">All time</div>
+            <div className="text-sm text-muted-foreground mb-1">Общая выручка</div>
+            <div className="text-2xl font-bold text-foreground">180 000 000 ₽</div>
+            <div className="text-xs text-muted-foreground mt-2">За всё время</div>
           </CardContent>
         </Card>
       </div>
@@ -67,7 +67,7 @@ const Payments = () => {
             <div className="relative flex-1 max-w-sm">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
-                placeholder="Search payments..."
+                placeholder="Поиск платежей..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -79,13 +79,13 @@ const Payments = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Payment ID</TableHead>
-                <TableHead>Contract</TableHead>
-                <TableHead>Client</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead>Amount</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>№ Платежа</TableHead>
+                <TableHead>Договор</TableHead>
+                <TableHead>Клиент</TableHead>
+                <TableHead>Тип</TableHead>
+                <TableHead>Сумма</TableHead>
+                <TableHead>Дата</TableHead>
+                <TableHead>Статус</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -105,7 +105,7 @@ const Payments = () => {
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Badge variant={payment.status === "Completed" ? "default" : "secondary"}>
+                    <Badge variant={payment.status === "Выполнен" ? "default" : "secondary"}>
                       {payment.status}
                     </Badge>
                   </TableCell>

@@ -7,39 +7,39 @@ const Complexes = () => {
   const complexes = [
     {
       id: 1,
-      name: "Sunset Heights",
-      address: "123 Sunset Boulevard, Downtown",
+      name: "Закатные Высоты",
+      address: "ул. Закатная 123, Центральный район",
       blocks: 4,
       totalUnits: 120,
       available: 15,
-      status: "Active",
+      status: "Активный",
     },
     {
       id: 2,
-      name: "Green Valley",
-      address: "456 Valley Road, North District",
+      name: "Зелёная Долина",
+      address: "ул. Долинная 456, Северный район",
       blocks: 3,
       totalUnits: 90,
       available: 8,
-      status: "Active",
+      status: "Активный",
     },
     {
       id: 3,
-      name: "Park View",
-      address: "789 Park Avenue, East Side",
+      name: "Вид на Парк",
+      address: "пр. Парковый 789, Восточная сторона",
       blocks: 5,
       totalUnits: 150,
       available: 22,
-      status: "Active",
+      status: "Активный",
     },
     {
       id: 4,
-      name: "Riverside Plaza",
-      address: "321 River Street, Waterfront",
+      name: "Речная Площадь",
+      address: "ул. Речная 321, Набережная",
       blocks: 6,
       totalUnits: 180,
       available: 35,
-      status: "Under Construction",
+      status: "Строится",
     },
   ];
 
@@ -47,12 +47,12 @@ const Complexes = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Residential Complexes</h1>
-          <p className="text-muted-foreground">Manage your property developments</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Жилые комплексы</h1>
+          <p className="text-muted-foreground">Управление жилищными проектами</p>
         </div>
         <Button className="gap-2">
           <Plus className="w-4 h-4" />
-          Add Complex
+          Добавить комплекс
         </Button>
       </div>
 
@@ -73,7 +73,7 @@ const Complexes = () => {
                     </div>
                   </div>
                 </div>
-                <Badge variant={complex.status === "Active" ? "default" : "secondary"}>
+                <Badge variant={complex.status === "Активный" ? "default" : "secondary"}>
                   {complex.status}
                 </Badge>
               </div>
@@ -82,21 +82,21 @@ const Complexes = () => {
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-foreground">{complex.blocks}</div>
-                  <div className="text-xs text-muted-foreground mt-1">Blocks</div>
+                  <div className="text-xs text-muted-foreground mt-1">Блоков</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-foreground">{complex.totalUnits}</div>
-                  <div className="text-xs text-muted-foreground mt-1">Total Units</div>
+                  <div className="text-xs text-muted-foreground mt-1">Всего квартир</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-success">{complex.available}</div>
-                  <div className="text-xs text-muted-foreground mt-1">Available</div>
+                  <div className="text-xs text-muted-foreground mt-1">Доступно</div>
                 </div>
               </div>
               <div className="mt-6">
                 <Button variant="outline" className="w-full gap-2">
                   <Home className="w-4 h-4" />
-                  View Details
+                  Подробнее
                 </Button>
               </div>
             </CardContent>

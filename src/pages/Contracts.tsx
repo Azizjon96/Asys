@@ -18,48 +18,48 @@ const Contracts = () => {
 
   const contracts = [
     {
-      id: "CON-001",
-      client: "John Anderson",
-      complex: "Sunset Heights",
-      block: "Block A",
-      apartment: "A-305",
-      area: "85 m²",
-      totalPrice: "$250,000",
-      status: "Active",
-      date: "2024-01-15",
+      id: "ДОГ-001",
+      client: "Иванов Иван Иванович",
+      complex: "Закатные Высоты",
+      block: "Блок А",
+      apartment: "А-305",
+      area: "85 м²",
+      totalPrice: "18 750 000 ₽",
+      status: "Активный",
+      date: "15.01.2024",
     },
     {
-      id: "CON-002",
-      client: "Sarah Williams",
-      complex: "Green Valley",
-      block: "Block B",
-      apartment: "B-201",
-      area: "72 m²",
-      totalPrice: "$180,000",
-      status: "Active",
-      date: "2024-01-14",
+      id: "ДОГ-002",
+      client: "Петрова Мария Сергеевна",
+      complex: "Зелёная Долина",
+      block: "Блок Б",
+      apartment: "Б-201",
+      area: "72 м²",
+      totalPrice: "13 500 000 ₽",
+      status: "Активный",
+      date: "14.01.2024",
     },
     {
-      id: "CON-003",
-      client: "Michael Chen",
-      complex: "Park View",
-      block: "Block C",
-      apartment: "C-410",
-      area: "95 m²",
-      totalPrice: "$320,000",
-      status: "Pending",
-      date: "2024-01-13",
+      id: "ДОГ-003",
+      client: "Сидоров Петр Алексеевич",
+      complex: "Вид на Парк",
+      block: "Блок В",
+      apartment: "В-410",
+      area: "95 м²",
+      totalPrice: "24 000 000 ₽",
+      status: "В ожидании",
+      date: "13.01.2024",
     },
     {
-      id: "CON-004",
-      client: "Emma Davis",
-      complex: "Riverside Plaza",
-      block: "Block A",
-      apartment: "A-502",
-      area: "88 m²",
-      totalPrice: "$290,000",
-      status: "Active",
-      date: "2024-01-12",
+      id: "ДОГ-004",
+      client: "Смирнова Елена Дмитриевна",
+      complex: "Речная Площадь",
+      block: "Блок А",
+      apartment: "А-502",
+      area: "88 м²",
+      totalPrice: "21 750 000 ₽",
+      status: "Активный",
+      date: "12.01.2024",
     },
   ];
 
@@ -67,12 +67,12 @@ const Contracts = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Contracts</h1>
-          <p className="text-muted-foreground">Manage property contracts and agreements</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Договоры</h1>
+          <p className="text-muted-foreground">Управление договорами на недвижимость</p>
         </div>
         <Button className="gap-2">
           <Plus className="w-4 h-4" />
-          New Contract
+          Новый договор
         </Button>
       </div>
 
@@ -82,7 +82,7 @@ const Contracts = () => {
             <div className="relative flex-1 max-w-sm">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
-                placeholder="Search contracts..."
+                placeholder="Поиск договоров..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -94,13 +94,13 @@ const Contracts = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Contract ID</TableHead>
-                <TableHead>Client</TableHead>
-                <TableHead>Property</TableHead>
-                <TableHead>Area</TableHead>
-                <TableHead>Total Price</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>№ Договора</TableHead>
+                <TableHead>Клиент</TableHead>
+                <TableHead>Объект</TableHead>
+                <TableHead>Площадь</TableHead>
+                <TableHead>Стоимость</TableHead>
+                <TableHead>Дата</TableHead>
+                <TableHead>Статус</TableHead>
                 <TableHead className="w-12"></TableHead>
               </TableRow>
             </TableHeader>
@@ -126,7 +126,7 @@ const Contracts = () => {
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Badge variant={contract.status === "Active" ? "default" : "secondary"}>
+                    <Badge variant={contract.status === "Активный" ? "default" : "secondary"}>
                       {contract.status}
                     </Badge>
                   </TableCell>
