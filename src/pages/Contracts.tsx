@@ -12,9 +12,25 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
 
 const Contracts = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const { toast } = useToast();
+
+  const handleNewContract = () => {
+    toast({
+      title: "Новый договор",
+      description: "Функция создания договора будет добавлена после подключения базы данных",
+    });
+  };
+
+  const handleContractActions = (contractId: string) => {
+    toast({
+      title: "Действия с договором",
+      description: `Выбран договор ${contractId}. Функционал будет добавлен.`,
+    });
+  };
 
   const contracts = [
     {
@@ -70,7 +86,7 @@ const Contracts = () => {
           <h1 className="text-3xl font-bold text-foreground mb-2">Договоры</h1>
           <p className="text-muted-foreground">Управление договорами на недвижимость</p>
         </div>
-        <Button className="gap-2">
+        <Button className="gap-2" onClick={handleNewContract}>
           <Plus className="w-4 h-4" />
           Новый договор
         </Button>
@@ -131,7 +147,11 @@ const Contracts = () => {
                     </Badge>
                   </TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="icon">
+                    <Button 
+                      variant="ghost" 
+                      size="icon"
+                      onClick={() => handleContractActions(contract.id)}
+                    >
                       <MoreVertical className="w-4 h-4" />
                     </Button>
                   </TableCell>
