@@ -14,7 +14,291 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      apartments: {
+        Row: {
+          apartment_number: string
+          area: number | null
+          block_id: string | null
+          created_at: string | null
+          floor: number | null
+          id: string
+          price: number | null
+          rooms: number | null
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          apartment_number: string
+          area?: number | null
+          block_id?: string | null
+          created_at?: string | null
+          floor?: number | null
+          id?: string
+          price?: number | null
+          rooms?: number | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          apartment_number?: string
+          area?: number | null
+          block_id?: string | null
+          created_at?: string | null
+          floor?: number | null
+          id?: string
+          price?: number | null
+          rooms?: number | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "apartments_block_id_fkey"
+            columns: ["block_id"]
+            isOneToOne: false
+            referencedRelation: "blocks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      blocks: {
+        Row: {
+          complex_id: string | null
+          created_at: string | null
+          id: string
+          name: string
+          occupied_apartments: number | null
+          total_apartments: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          complex_id?: string | null
+          created_at?: string | null
+          id?: string
+          name: string
+          occupied_apartments?: number | null
+          total_apartments?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          complex_id?: string | null
+          created_at?: string | null
+          id?: string
+          name?: string
+          occupied_apartments?: number | null
+          total_apartments?: number | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blocks_complex_id_fkey"
+            columns: ["complex_id"]
+            isOneToOne: false
+            referencedRelation: "complexes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      clients: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          full_name: string
+          id: string
+          passport_data: string | null
+          phone: string
+          telegram_chat_id: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          full_name: string
+          id?: string
+          passport_data?: string | null
+          phone: string
+          telegram_chat_id?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string
+          id?: string
+          passport_data?: string | null
+          phone?: string
+          telegram_chat_id?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      complexes: {
+        Row: {
+          address: string
+          created_at: string | null
+          id: string
+          name: string
+          total_apartments: number | null
+          total_blocks: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          address: string
+          created_at?: string | null
+          id?: string
+          name: string
+          total_apartments?: number | null
+          total_blocks?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          address?: string
+          created_at?: string | null
+          id?: string
+          name?: string
+          total_apartments?: number | null
+          total_blocks?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      contracts: {
+        Row: {
+          apartment_id: string | null
+          client_id: string | null
+          contract_number: string
+          created_at: string | null
+          end_date: string | null
+          id: string
+          initial_payment: number | null
+          monthly_payment: number | null
+          paid_amount: number | null
+          start_date: string
+          status: string | null
+          total_amount: number
+          updated_at: string | null
+        }
+        Insert: {
+          apartment_id?: string | null
+          client_id?: string | null
+          contract_number: string
+          created_at?: string | null
+          end_date?: string | null
+          id?: string
+          initial_payment?: number | null
+          monthly_payment?: number | null
+          paid_amount?: number | null
+          start_date: string
+          status?: string | null
+          total_amount: number
+          updated_at?: string | null
+        }
+        Update: {
+          apartment_id?: string | null
+          client_id?: string | null
+          contract_number?: string
+          created_at?: string | null
+          end_date?: string | null
+          id?: string
+          initial_payment?: number | null
+          monthly_payment?: number | null
+          paid_amount?: number | null
+          start_date?: string
+          status?: string | null
+          total_amount?: number
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contracts_apartment_id_fkey"
+            columns: ["apartment_id"]
+            isOneToOne: false
+            referencedRelation: "apartments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "contracts_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      payments: {
+        Row: {
+          amount: number
+          contract_id: string | null
+          created_at: string | null
+          id: string
+          notes: string | null
+          payment_date: string
+          payment_number: string
+          payment_type: string
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          amount: number
+          contract_id?: string | null
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          payment_date: string
+          payment_number: string
+          payment_type: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          amount?: number
+          contract_id?: string | null
+          created_at?: string | null
+          id?: string
+          notes?: string | null
+          payment_date?: string
+          payment_number?: string
+          payment_type?: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_contract_id_fkey"
+            columns: ["contract_id"]
+            isOneToOne: false
+            referencedRelation: "contracts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          role?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
