@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 interface AuthContextType {
   user: User | null;
   session: Session | null;
-  signIn: (email: string, password: string) => Promise<{ error: any }>;
-  signUp: (email: string, password: string, fullName: string, phone: string) => Promise<{ error: any }>;
+  signIn: (phone: string, password: string) => Promise<{ error: any }>;
+  signUp: (phone: string, password: string, fullName: string, phoneNumber: string) => Promise<{ error: any }>;
   signOut: () => Promise<void>;
   loading: boolean;
 }
@@ -40,7 +40,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signIn = async (email: string, password: string) => {
+  const signIn = async (phone: string, password: string) => {
+    // Создаем синтетический email из телефона для Supabase
+    const email = `${phone.replace(/\+/g, '')}@system.local`;
+    
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -53,7 +56,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error };
   };
 
-  const signUp = async (email: string, password: string, fullName: string, phone: string) => {
+  const signUp = async (phone: string, password: string, fullName: string, phoneNumber: string) => {
+    // Создаем синтетический email из телефона для Supabase
+    const email = `${phone.replace(/\+/g, '')}@system.local`;
+    
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -61,10 +67,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         emailRedirectTo: `${window.location.origin}/`,
         data: {
           full_name: fullName,
-          phone: phone,
+          phone: phoneNumber,
         }
       }
     });
+    
+    if (!error) {
+      navigate('/');
+    }
     
     return { error };
   };
