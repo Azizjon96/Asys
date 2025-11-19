@@ -1,6 +1,7 @@
 import { NavLink } from "@/components/NavLink";
-import { Building2, Users, FileText, Home, Building, CreditCard, Bell } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Building2, Users, FileText, Home, Building, CreditCard, Bell, UserCog, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { to: "/", icon: Home, label: "Панель управления" },
@@ -13,6 +14,8 @@ const navItems = [
 ];
 
 export const Sidebar = () => {
+  const { userRole, signOut } = useAuth();
+
   return (
     <aside className="w-64 bg-sidebar border-r border-sidebar-border flex flex-col">
       <div className="p-6 border-b border-sidebar-border">
@@ -39,9 +42,29 @@ export const Sidebar = () => {
             <span>{item.label}</span>
           </NavLink>
         ))}
+        
+        {userRole === 'admin' && (
+          <NavLink
+            to="/users"
+            className="flex items-center gap-3 px-4 py-3 rounded-lg text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors"
+            activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+          >
+            <UserCog className="w-5 h-5" />
+            <span>Пользователи</span>
+          </NavLink>
+        )}
       </nav>
 
-      <div className="p-4 border-t border-sidebar-border">
+      <div className="p-4 border-t border-sidebar-border space-y-3">
+        <Button 
+          variant="outline" 
+          className="w-full justify-start gap-3"
+          onClick={signOut}
+        >
+          <LogOut className="w-4 h-4" />
+          Выйти
+        </Button>
+        
         <div className="bg-sidebar-accent rounded-lg p-4">
           <p className="text-sm text-sidebar-accent-foreground font-medium mb-1">Нужна помощь?</p>
           <p className="text-xs text-sidebar-accent-foreground/60">Обратитесь в поддержку</p>
