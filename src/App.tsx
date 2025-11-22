@@ -14,6 +14,7 @@ import Blocks from "./pages/Blocks";
 import Payments from "./pages/Payments";
 import Notifications from "./pages/Notifications";
 import Users from "./pages/Users";
+import Documents from "./pages/Documents";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -55,6 +56,7 @@ const AppContent = () => {
                     <Route path="/complexes" element={<Complexes />} />
                     <Route path="/blocks" element={<Blocks />} />
                     <Route path="/payments" element={<Payments />} />
+                    <Route path="/documents" element={<Documents />} />
                     <Route path="/notifications" element={<Notifications />} />
                     <Route path="/users" element={<Users />} />
                     <Route path="*" element={<NotFound />} />
