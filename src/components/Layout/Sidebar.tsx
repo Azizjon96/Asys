@@ -1,5 +1,5 @@
 import { NavLink } from "@/components/NavLink";
-import { Building2, Users, FileText, Home, Building, CreditCard, Bell, UserCog, LogOut } from "lucide-react";
+import { Building2, Users, FileText, Home, Building, CreditCard, Bell, UserCog, LogOut, FileBadge } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 
@@ -10,6 +10,7 @@ const navItems = [
   { to: "/complexes", icon: Building2, label: "Жилые комплексы" },
   { to: "/blocks", icon: Building, label: "Блоки" },
   { to: "/payments", icon: CreditCard, label: "Платежи" },
+  { to: "/documents", icon: FileBadge, label: "Документы" },
   { to: "/notifications", icon: Bell, label: "Уведомления" },
 ];
 
