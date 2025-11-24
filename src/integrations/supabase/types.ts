@@ -14,6 +14,53 @@ export type Database = {
   }
   public: {
     Tables: {
+      apartment_layouts: {
+        Row: {
+          apartment_id: string | null
+          brick_work_approved: boolean | null
+          brick_work_notes: string | null
+          created_at: string
+          id: string
+          plumbing_approved: boolean | null
+          plumbing_notes: string | null
+          room_layout: Json | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          apartment_id?: string | null
+          brick_work_approved?: boolean | null
+          brick_work_notes?: string | null
+          created_at?: string
+          id?: string
+          plumbing_approved?: boolean | null
+          plumbing_notes?: string | null
+          room_layout?: Json | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          apartment_id?: string | null
+          brick_work_approved?: boolean | null
+          brick_work_notes?: string | null
+          created_at?: string
+          id?: string
+          plumbing_approved?: boolean | null
+          plumbing_notes?: string | null
+          room_layout?: Json | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "apartment_layouts_apartment_id_fkey"
+            columns: ["apartment_id"]
+            isOneToOne: false
+            referencedRelation: "apartments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       apartments: {
         Row: {
           apartment_number: string

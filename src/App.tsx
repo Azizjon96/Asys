@@ -11,6 +11,7 @@ import Clients from "./pages/Clients";
 import Contracts from "./pages/Contracts";
 import Complexes from "./pages/Complexes";
 import Blocks from "./pages/Blocks";
+import Layouts from "./pages/Layouts";
 import Payments from "./pages/Payments";
 import Notifications from "./pages/Notifications";
 import Users from "./pages/Users";
@@ -55,6 +56,7 @@ const AppContent = () => {
                     <Route path="/contracts" element={<Contracts />} />
                     <Route path="/complexes" element={<Complexes />} />
                     <Route path="/blocks" element={<Blocks />} />
+                    <Route path="/layouts" element={<Layouts />} />
                     <Route path="/payments" element={<Payments />} />
                     <Route path="/documents" element={<Documents />} />
                     <Route path="/notifications" element={<Notifications />} />
